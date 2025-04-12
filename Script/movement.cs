@@ -6,7 +6,10 @@ public class MovimentoSimples : MonoBehaviour
 
     void Update()
     {
-        float movement = Input.GetAxis("Horizontal");
-        transform.Translate(movement * speed * Time.deltaTime, 0, 0);
+        float input = Input.GetAxisRaw("Horizontal");
+        if(input != 0)
+        {
+            transform.Translate(Vector2.right * input * speed * Time.deltaTime);
+        }
     }
 }
